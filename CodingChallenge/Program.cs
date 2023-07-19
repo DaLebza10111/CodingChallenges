@@ -4,10 +4,70 @@
     {
         static void Main(string[] args)
         {
-            
+            Console.WriteLine("Enter the total number of items");
+            int linenumber = int.Parse(Console.ReadLine());
+
+            int[] firstArray = new int[linenumber];
+            int[] secondArray = new int[linenumber];
+
+            Console.WriteLine("Enter the 1st collection: ");
+            for (int i = 0; i < linenumber; i++)
+            {
+                Console.WriteLine("\nEnter a number");
+                firstArray[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("Enter the 2nd collection: ");
+            for (int i = 0; i < linenumber; i++)
+            {
+                Console.WriteLine("\nEnter a number");
+                secondArray[i] = int.Parse(Console.ReadLine());
+            }
+
+            int minSteps = FindMinimumSteps(firstArray, secondArray);
+            Console.WriteLine("Minimum steps required: " + minSteps);
 
             Console.ReadLine();
         }
+
+        static int FindMinimumSteps(int[] A, int[] B)
+        {
+            int n = A.Length;
+            int minSteps = 0;
+
+            while (true)
+            {
+                bool canEqualize = true;
+
+                // Check if all elements in array A are equal
+                for (int i = 1; i < n; i++)
+                {
+                    if (A[i] != A[0])
+                    {
+                        canEqualize = false;
+                        break;
+                    }
+                }
+
+                if (canEqualize)
+                    return minSteps;
+
+                // Find the index of the largest element in array A
+                int maxIndex = 0;
+                for (int i = 1; i < n; i++)
+                {
+                    if (A[i] > A[maxIndex])
+                        maxIndex = i;
+                }
+
+                if (A[maxIndex] < B[maxIndex])
+                    return -1;
+
+                A[maxIndex] -= B[maxIndex];
+                minSteps++;
+            }
+        }
+
 
         public void favouritesong()
         {
