@@ -4,7 +4,77 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the total number of items");
+
+            Console.WriteLine("Enter test number");
+            //int testnumbers = int.Parse(Console.ReadLine());
+
+            int totaloutput = 0;
+            int arraysize = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter test number");
+            string spacedinteger = Console.ReadLine();
+
+            long[] inputarray = Array.ConvertAll(spacedinteger.Split(' '), long.Parse);
+
+            long result = 0;
+
+            for (int i = 0; i < inputarray.Length; i++)
+            {
+                result += inputarray[i];
+            }
+
+            Console.WriteLine(result);
+
+            //List<int> sampleoutput = new List<int>();
+
+            //for (int j = 0; j < testnumbers; j++)
+            //{
+            //    Console.WriteLine("Enter row number");
+            //    int rownumber = int.Parse(Console.ReadLine());
+
+            //    Console.WriteLine("\nEnter col number");
+            //    int colnumber = int.Parse(Console.ReadLine());
+            //    string[,] tablearray = new string[rownumber, colnumber];
+
+            //    List<int> maxborders = new List<int>();
+
+            //    for (int i = 0; i < rownumber; i++)
+            //    {
+            //        for (int k = 0; k < colnumber; k++)
+            //        {
+            //            Console.WriteLine($"\nEnter item {k + 1} for row {i + 1}");
+            //            tablearray[i, k] = Console.ReadLine();
+            //        }
+            //    }
+
+            //    int maxrowbder = 0;
+            //    for (int i = 0; i < rownumber; i++)
+            //    {
+            //        for (int k = 0; k < colnumber; k++)
+            //        {
+            //            //check a cell after
+            //            if (tablearray[i, k] == "#")
+            //            {
+            //                maxrowbder += 1;
+            //                maxborders.Add(maxrowbder);
+            //            }
+            //        }
+
+            //        maxrowbder = 0;
+            //    }
+
+            //    sampleoutput.Add(maxborders.Max());
+
+            //}
+
+            //foreach (var output in sampleoutput)
+            //{
+            //    Console.WriteLine(output);
+            //}
+
+
+
+            /*Console.WriteLine("Enter the total number of items");
             int linenumber = int.Parse(Console.ReadLine());
 
             int[] firstArray = new int[linenumber];
@@ -25,7 +95,7 @@
             }
 
             int minSteps = FindMinimumSteps(firstArray, secondArray);
-            Console.WriteLine("Minimum steps required: " + minSteps);
+            Console.WriteLine("Minimum steps required: " + minSteps);*/
 
             Console.ReadLine();
         }
