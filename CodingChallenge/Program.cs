@@ -5,6 +5,12 @@
         static void Main(string[] args)
         {
 
+
+            Console.ReadLine();
+        }
+
+        public void FindMaxBorder()
+        {
             Console.WriteLine("Enter row number");
             int testnumbers = int.Parse(Console.ReadLine());
 
@@ -49,33 +55,6 @@
                 sampleoutput.Add(maxborders.Max());
 
             }
-
-            
-
-            /*Console.WriteLine("Enter the total number of items");
-            int linenumber = int.Parse(Console.ReadLine());
-
-            int[] firstArray = new int[linenumber];
-            int[] secondArray = new int[linenumber];
-
-            Console.WriteLine("Enter the 1st collection: ");
-            for (int i = 0; i < linenumber; i++)
-            {
-                Console.WriteLine("\nEnter a number");
-                firstArray[i] = int.Parse(Console.ReadLine());
-            }
-
-            Console.WriteLine("Enter the 2nd collection: ");
-            for (int i = 0; i < linenumber; i++)
-            {
-                Console.WriteLine("\nEnter a number");
-                secondArray[i] = int.Parse(Console.ReadLine());
-            }
-
-            int minSteps = FindMinimumSteps(firstArray, secondArray);
-            Console.WriteLine("Minimum steps required: " + minSteps);*/
-
-            Console.ReadLine();
         }
 
         static int FindMinimumSteps(int[] A, int[] B)
