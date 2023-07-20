@@ -4,9 +4,36 @@
     {
         static void Main(string[] args)
         {
-
-
+            
             Console.ReadLine();
+        }
+
+        //this gets 2 space sperated numbers and uses the second number to determine how digits to remove from the 1st number
+        public void Largestcombination()
+        {
+            Console.WriteLine("Enter row number");
+            string valueinput = Console.ReadLine();
+            int[] collection = valueinput.Split(' ').Select(n => Convert.ToInt32(n)).ToArray();
+            string DefaultNumber = collection[0].ToString();
+            string digitsRemove = collection[1].ToString();
+
+            List<int> Maxoutput = new List<int>(); //index 0 is the actual number and index 1 is the number of digits to be remove
+
+            if ()
+            {
+                Console.WriteLine(DefaultNumber);
+            }
+            else
+            {
+
+                for (int i = 0; i < DefaultNumber.Length; i++)
+                {
+                    Maxoutput.Add(int.Parse(DefaultNumber.Remove(i, 1)));
+                }
+
+            }
+
+            Console.WriteLine(Maxoutput.Max());
         }
 
         public void FindMaxBorder()
