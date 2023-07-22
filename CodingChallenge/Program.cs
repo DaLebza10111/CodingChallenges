@@ -10,9 +10,44 @@ namespace CodingChallenge
 
             //Console.WriteLine("Enter the length of the string:\n");
             //int stringlength = int.Parse(Console.ReadLine());
+            Console.WriteLine("Test case number:\n");
+            int casenumber = int.Parse(Console.ReadLine());
 
+            Console.WriteLine("Collection size and rotation:\n");
+            string inputnumbers = Console.ReadLine();
+            int[] transfervar = inputnumbers.Split(' ').Select(Int32.Parse).ToArray();
+            int collectionsize = transfervar[0];
+            int rotationcount = transfervar[1];
+
+            Console.WriteLine("Enter collection:\n");
+            string collection = Console.ReadLine();
+            //int[] collectArray = collection.Split(' ').Select(Int32.Parse).ToArray();
+
+            for (int i = 0; i < rotationcount; i++)
+            {
+                string lastdigit = collection[collection.Length - 1].ToString();
+                collection = collection.Substring(0, collection.Length - 1).TrimEnd();
+
+
+                //new collection
+                collection = lastdigit +" "+ collection;
+            }
+
+
+            Console.WriteLine(collection);
+
+            //foreach (int i in collectArray)
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+            Console.ReadLine();
+        }
+
+        public void ASMEtoSAME()
+        {
             List<string> testcases = new List<string> { @"4 ???n aman", "4 aacb aabc", "3 ?po oyo" };
-            List<string> results = new List<string> ();
+            List<string> results = new List<string>();
 
             string wildcardstring = "?";
             int wildcardcount = 0;
@@ -22,7 +57,8 @@ namespace CodingChallenge
             Console.WriteLine("Enter the number of test cases:\n");
             int NumbTests = int.Parse(Console.ReadLine());
 
-            if ((NumbTests >= 1) || (NumbTests <= 10)) {
+            if ((NumbTests >= 1) || (NumbTests <= 10))
+            {
 
                 for (int j = 0; j < NumbTests; j++)
                 {
@@ -75,8 +111,6 @@ namespace CodingChallenge
             {
                 Console.WriteLine(item);
             }
-
-            Console.ReadLine();
         }
 
         //this gets 2 space sperated numbers and uses the second number to determine how digits to remove from the 1st number
