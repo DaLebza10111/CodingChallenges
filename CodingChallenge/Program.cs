@@ -1,10 +1,67 @@
-﻿namespace CodingChallenge
+﻿using System.Text.RegularExpressions;
+using System.Threading.Channels;
+
+namespace CodingChallenge
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            
+
+            //Console.WriteLine("Enter the length of the string:\n");
+            //int stringlength = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the first string:\n");
+            string strgth = Console.ReadLine();
+
+            Console.WriteLine("Enter the second string:\n");
+            string strngth = Console.ReadLine();
+
+            int count = 0;
+            int inputLength = strgth.Length;
+            int patternLength = strngth.Length;
+
+            string wildcardstring = "?";
+            int wildcardcount = 0;
+
+            //check for wildcards
+            for (int i = 0; i < strgth.Length; i++)
+            {
+                if (strgth[i].ToString() == wildcardstring)
+                {
+                    wildcardcount++;
+                }
+            }
+
+            for (int i = 0; i < patternLength; i++)
+            {
+                bool matchFound = false;
+
+                for (int j = 0; j < patternLength; j++)
+                {
+                    if (strgth[i] == strngth[j])
+                    {
+                        matchFound = true;
+                    }
+                }
+
+                if (matchFound)
+                {
+                    count++;
+                    // If you want to count overlapping matches, remove this line:
+                    i += patternLength - 1;
+                }
+            }
+
+            if (strgth.Length == (count + wildcardcount))
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
+
             Console.ReadLine();
         }
 
@@ -19,18 +76,9 @@
 
             List<int> Maxoutput = new List<int>(); //index 0 is the actual number and index 1 is the number of digits to be remove
 
-            if ()
+            for (int i = 0; i < DefaultNumber.Length; i++)
             {
-                Console.WriteLine(DefaultNumber);
-            }
-            else
-            {
-
-                for (int i = 0; i < DefaultNumber.Length; i++)
-                {
-                    Maxoutput.Add(int.Parse(DefaultNumber.Remove(i, 1)));
-                }
-
+                Maxoutput.Add(int.Parse(DefaultNumber.Remove(i, 1)));
             }
 
             Console.WriteLine(Maxoutput.Max());
