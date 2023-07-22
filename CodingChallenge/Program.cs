@@ -7,9 +7,12 @@ namespace CodingChallenge
     {
         static void Main(string[] args)
         {
+            
+            Console.ReadLine();
+        }
 
-            //Console.WriteLine("Enter the length of the string:\n");
-            //int stringlength = int.Parse(Console.ReadLine());
+        public void Inversion()
+        {
             Console.WriteLine("Test case number:\n");
             int casenumber = int.Parse(Console.ReadLine());
 
@@ -30,18 +33,12 @@ namespace CodingChallenge
 
 
                 //new collection
-                collection = lastdigit +" "+ collection;
+                collection = lastdigit + " " + collection;
             }
 
 
             Console.WriteLine(collection);
 
-            //foreach (int i in collectArray)
-            //{
-            //    Console.WriteLine(i);
-            //}
-
-            Console.ReadLine();
         }
 
         public void ASMEtoSAME()
