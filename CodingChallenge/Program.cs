@@ -11,55 +11,69 @@ namespace CodingChallenge
             //Console.WriteLine("Enter the length of the string:\n");
             //int stringlength = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter the first string:\n");
-            string strgth = Console.ReadLine();
-
-            Console.WriteLine("Enter the second string:\n");
-            string strngth = Console.ReadLine();
-
-            int count = 0;
-            int inputLength = strgth.Length;
-            int patternLength = strngth.Length;
+            List<string> testcases = new List<string> { @"4 ???n aman", "4 aacb aabc", "3 ?po oyo" };
+            List<string> results = new List<string> ();
 
             string wildcardstring = "?";
             int wildcardcount = 0;
+            int count = 0;
 
-            //check for wildcards
-            for (int i = 0; i < strgth.Length; i++)
-            {
-                if (strgth[i].ToString() == wildcardstring)
+
+            Console.WriteLine("Enter the number of test cases:\n");
+            int NumbTests = int.Parse(Console.ReadLine());
+
+            if ((NumbTests >= 1) || (NumbTests <= 10)) {
+
+                for (int j = 0; j < NumbTests; j++)
                 {
-                    wildcardcount++;
-                }
-            }
 
-            for (int i = 0; i < patternLength; i++)
-            {
-                bool matchFound = false;
+                    string[] stringlength = testcases[j].Split(' ');
+                    int strnglngth = int.Parse(stringlength[0]);
+                    string s = stringlength[1];
+                    string t = stringlength[2];
 
-                for (int j = 0; j < patternLength; j++)
-                {
-                    if (strgth[i] == strngth[j])
+                    //check for wildcards
+                    for (int i = 0; i < s.Length; i++)
                     {
-                        matchFound = true;
+                        if (s[i].ToString() == wildcardstring)
+                        {
+                            wildcardcount++;
+                        }
                     }
+
+                    for (int i = 0; i < s.Length; i++)
+                    {
+                        for (int k = 0; k < s.Length; k++)
+                        {
+                            if (s[i] == t[k])
+                            {
+                                count++;
+                            }
+                        }
+
+                    }
+
+                    if (s.Length == (count + wildcardcount) || count == s.Length)
+                    {
+                        results.Add("Yes");
+                    }
+                    else
+                    {
+                        results.Add("No");
+                    }
+
                 }
 
-                if (matchFound)
-                {
-                    count++;
-                    // If you want to count overlapping matches, remove this line:
-                    i += patternLength - 1;
-                }
-            }
-
-            if (strgth.Length == (count + wildcardcount))
-            {
-                Console.WriteLine("Yes");
             }
             else
             {
-                Console.WriteLine("No");
+                results.Add("No");
+            }
+
+            //prints results
+            foreach (var item in results)
+            {
+                Console.WriteLine(item);
             }
 
             Console.ReadLine();
